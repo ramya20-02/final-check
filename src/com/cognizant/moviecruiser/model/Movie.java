@@ -11,27 +11,11 @@ public class Movie {
 	private String title;
 	private int boxOffice;
 	private boolean active;
-	private Date dateoflaunch;
+	private Date dateOfLaunch;
 	private String genre;
-	private boolean hasteaser;
+	private boolean hasTeaser;
 
-	public Movie() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	public Movie(long id, String title, int boxOffice, boolean active, Date dateOfLaunch, String genre,
-			boolean hasTeaser) {
-		super();
-		this.id = id;
-		this.title = title;
-		this.boxOffice = boxOffice;
-		this.active = active;
-		this.dateoflaunch = dateOfLaunch;
-		this.genre = genre;
-		this.hasteaser = hasTeaser;
-	}
-
+	
 	public long getId() {
 		return id;
 	}
@@ -65,11 +49,11 @@ public class Movie {
 	}
 
 	public Date getDateOfLaunch() {
-		return dateoflaunch;
+		return dateOfLaunch;
 	}
 
 	public void setDateOfLaunch(Date dateOfLaunch) {
-		dateOfLaunch = dateOfLaunch;
+		this.dateOfLaunch = dateOfLaunch;
 	}
 
 	public String getGenre() {
@@ -81,11 +65,28 @@ public class Movie {
 	}
 
 	public boolean isHasTeaser() {
-		return hasteaser;
+		return hasTeaser;
 	}
 
 	public void setHasTeaser(boolean hasTeaser) {
-		hasteaser = hasTeaser;
+		this.hasTeaser = hasTeaser;
+	}
+
+	public Movie() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Movie(long id, String title, int boxOffice, boolean active, Date dateOfLaunch, String genre,
+			boolean hasTeaser) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.boxOffice = boxOffice;
+		this.active = active;
+		this.dateOfLaunch = dateOfLaunch;
+		this.genre = genre;
+		this.hasTeaser = hasTeaser;
 	}
 
 	@Override
@@ -122,7 +123,7 @@ public class Movie {
 		box.setGroupingUsed(true);
 
 		return String.format("%-20s  $%20s  %-5s %-10s  %-15s %-5s Edit", title, box.format(boxOffice),
-				active ? "Yes" : "No", sdf.format(dateoflaunch), genre, hasteaser ? "Yes" : "No");
+				active ? "Yes" : "No", sdf.format(dateOfLaunch), genre, hasTeaser ? "Yes" : "No");
 
 	}
 

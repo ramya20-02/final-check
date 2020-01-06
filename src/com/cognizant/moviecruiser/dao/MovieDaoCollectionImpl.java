@@ -53,6 +53,7 @@ public class MovieDaoCollectionImpl implements MovieDao {
 			if (MovieList.get(i).getId() == movie.getId()) {
 				
 				MovieList.set(i, movie);
+				break;
 			}
 		}
 

@@ -60,7 +60,7 @@ public class FavouriteDaoCollectionImpl implements FavouritesDao {
 		for (int i = 0; i < movieList.size(); i++) {
 			if (movieList.get(i).getId() == MovieId) {
 				movieList.remove(i);
-				return;
+				break;
 			}
 
 		}
