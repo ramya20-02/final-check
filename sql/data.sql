@@ -13,7 +13,8 @@ VALUES
 -- -------------------------------------------------------------------
 -- Displaying Admin Movie List----------------------------------------
 -- -------------------------------------------------------------------
-SELECT * FROM movie_list;
+SELECT mo_id AS "Id",mo_title AS "Title",mo_box_office AS "Box Office",mo_active AS "Active",mo_date_of_launch AS "Date of Launch",mo_genre AS "Genre",mo_has_teaser AS "Has Teaser"
+FROM movie_list;
 
 -- -------------------------------------------------------------------
 -- Updating Admin Movie List------------------------------------------
@@ -25,7 +26,8 @@ WHERE mo_id=1;
 -- -------------------------------------------------------------------
 -- Displaying Updated Movie List--------------------------------------
 -- -------------------------------------------------------------------
-SELECT * FROM movie_list;
+SELECT  mo_title AS "Title",mo_box_office AS "Box Office",mo_active AS "Active",mo_date_of_launch AS "Date of Launch",mo_genre AS "Genre",mo_has_teaser AS "Has Teaser"
+FROM movie_list;
 
 -- -------------------------------------------------------------------
 -- Creating Users-----------------------------------------------------
@@ -36,14 +38,15 @@ VALUES(1,'Kiran'),(2,'Anil');
 -- -------------------------------------------------------------------
 -- Displaying User List-----------------------------------------------
 -- -------------------------------------------------------------------
-SELECT * FROM user;
+SELECT us_id AS "User Id",us_name AS "User Name"
+FROM user;
 
 -- -------------------------------------------------------------------
 -- Customer Movie List------------------------------------------------
 -- -------------------------------------------------------------------
 SELECT mo_title,mo_box_office,mo_genre,mo_has_teaser
 FROM movie_list
-WHERE mo_active='Yes' AND mo_date_of_launch  <= (SELECT(curdate())); 
+WHERE mo_active='Yes' AND mo_date_of_launch  <= current_date(); 
 
 -- -------------------------------------------------------------------- 
 -- Favorite Movie List-------------------------------------------------
@@ -53,7 +56,8 @@ VALUES (1,2);
 INSERT INTO favorite(ft_us_id,ft_pr_id) 
 VALUES (1,3);
 
-SELECT * FROM favorite;
+SELECT ft_us_id AS "Favorite User Id",ft_pr_id AS "Favorite Product Id"
+FROM favorite;
 
 -- --------------------------------------------------------------------
 -- To View Favorite----------------------------------------------------
@@ -73,21 +77,18 @@ INNER JOIN favorite
 ON ft_pr_id=mo_id
 WHERE ft_us_id=1;
 
--- --------------------------------------------------------------------
--- To Display Favorite-------------------------------------------------
--- --------------------------------------------------------------------
-SELECT *FROM favorite;
 
 -- --------------------------------------------------------------------
 -- To Delete Movie From Favorite---------------------------------------
 -- --------------------------------------------------------------------
 DELETE FROM favorite 
-WHERE ft_us_id=1 AND ft_pr_id=3 limit 1;
+WHERE ft_us_id=1 AND ft_pr_id=2 limit 1;
 
 -- --------------------------------------------------------------------
 -- To Display Favorite-------------------------------------------------
 -- --------------------------------------------------------------------
-SELECT *FROM favorite;
+SELECT ft_us_id AS "Favorite User Id",ft_pr_id AS "Favorite Product Id"
+FROM favorite;
 
 -- --------------------------------------------------------------------
 --  To View Favorite after Deleting------------------------------------
@@ -107,7 +108,3 @@ INNER JOIN favorite
 ON ft_pr_id=mo_id
 WHERE ft_us_id=1;
 
--- --------------------------------------------------------------------
--- To Display Favorite After Deleting----------------------------------
--- --------------------------------------------------------------------
-SELECT *FROM favorite;
