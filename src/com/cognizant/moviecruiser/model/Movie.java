@@ -9,7 +9,7 @@ import com.cognizant.moviecruiser.util.DateUtil;
 public class Movie {
 	private long id;
 	private String title;
-	private int boxOffice;
+	private long boxOffice;
 	private boolean active;
 	private Date dateOfLaunch;
 	private String genre;
@@ -32,11 +32,11 @@ public class Movie {
 		this.title = title;
 	}
 
-	public int getBoxOffice() {
+	public long getBoxOffice() {
 		return boxOffice;
 	}
 
-	public void setBoxOffice(int boxOffice) {
+	public void setBoxOffice(long boxOffice) {
 		this.boxOffice = boxOffice;
 	}
 
@@ -77,7 +77,7 @@ public class Movie {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Movie(long id, String title, int boxOffice, boolean active, Date dateOfLaunch, String genre,
+	public Movie(long id, String title, long boxOffice, boolean active, Date dateOfLaunch, String genre,
 			boolean hasTeaser) {
 		super();
 		this.id = id;

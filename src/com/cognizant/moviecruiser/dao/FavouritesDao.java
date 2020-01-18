@@ -5,10 +5,7 @@ import java.util.List;
 import com.cognizant.moviecruiser.model.Movie;
 
 public interface FavouritesDao {
-    public default void addFavourites(long userId,long movieId) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void addFavourites(long userId,long movieId);
     
     public List<Movie> getAllFavourites(long userId) throws FavouritesEmptyException;
     
